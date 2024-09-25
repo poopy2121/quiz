@@ -1,0 +1,58 @@
+body {
+    height: 95vh;
+    display: grid;
+    place-items: center;
+}
+
+button {
+    background-color: rgb(97, 97, 224);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 5rem;
+    border-radius: 1.2rem;
+    padding: .4rem
+
+}
+
+button:hover {
+    transform: scale(1.2);
+    transition: all .3s;
+    width: 30%;
+    z-index: 2000;
+
+}
+
+#container {
+    background-color: lightblue;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:50%;
+    border-radius: 2rem;
+    position: relative;
+}
+
+#cash {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5rem;
+}
+
+
+#boxContainer {
+    border: hidden red; border-radius: 1.2rem;
+    display: grid;
+     grid-template-columns: 1fr 1fr; 
+     
+
+
+}
+
+#questionContainer {
+    margin-bottom: 2rem;
+}
