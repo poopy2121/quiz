@@ -32,39 +32,9 @@ let answerC = document.getElementById("SpanC");
 let answerD = document.getElementById("SpanD");
 
 
-function firstQuestion() {
-  
-  question.innerText = questions[0].question;
-answerA.innerText = questions[0].options[0]
-answerB.innerText = questions[0].options[1]
-answerC.innerText = questions[0].options[2]
-answerD.innerText = questions[0].options[3]
-
-  
-}
-
-function secondQuestion() {
-    question.innerText = questions[1].question;
-    answerA.innerText = questions[1].options[0];
-    answerB.innerText = questions[1].options[1];
-    answerC.innerText = questions[1].options[2];
-    answerD.innerText = questions[1].options[3];
-  
-}
 
 
-function thirdQuestion() {
-     question.innerText = questions[2].question;
-     answerA.innerText = questions[2].options[0];
-     answerB.innerText = questions[2].options[1];
-     answerC.innerText = questions[2].options[2];
-     answerD.innerText = questions[2].options[3];
 
-  
-}
-
-
-firstQuestion();
 
 
 function displayQuestion(index) {
@@ -76,3 +46,5 @@ function displayQuestion(index) {
 
   
 }
+
+displayQuestion()
