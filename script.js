@@ -1,11 +1,7 @@
 const answerButtons = document.querySelectorAll(".answerBox");
 
 const questions = [
-  {
-    question: "What is the tallest animal in the world?",
-    options: ["Elephant", "Giraffe", "Kangaroo", "Lion"],
-    answer: "Giraffe",
-  },
+  
   {
     question:
       "On which planet can you find Olympus Mons, the largest volcano in the solar system?",
@@ -23,28 +19,32 @@ const questions = [
     ],
     answer: "Ming the Clam",
   },
+  {
+    question: "What is the tallest animal in the world?",
+    options: ["Elephant", "Giraffe", "Kangaroo", "Lion"],
+    answer: "Giraffe",
+  },
 ];
 
-let question = document.getElementById('questionContainer');
-let answerA = document.getElementById('SpanA');
+let question = document.getElementById("questionContainer");
+let answerA = document.getElementById("SpanA");
 let answerB = document.getElementById("SpanB");
 let answerC = document.getElementById("SpanC");
 let answerD = document.getElementById("SpanD");
 
-
-
-
-
-
-
 function displayQuestion(index) {
-       question.innerText = questions[index].question;
-       answerA.innerText = questions[index].options[0];
-       answerB.innerText = questions[index].options[1];
-       answerC.innerText = questions[index].options[2];
-       answerD.innerText = questions[index].options[3];
-
-  
+  question.innerText = questions[index].question;
+  answerA.innerText = questions[index].options[0];
+  answerB.innerText = questions[index].options[1];
+  answerC.innerText = questions[index].options[2];
+  answerD.innerText = questions[index].options[3];
 }
 
-displayQuestion()
+displayQuestion(0);
+
+// const nextQuestionBtn = document.createElement('button');
+
+//function showNextQuestionButton() {
+  // answerButtons.append(nextQuestionBtn);
+
+// }

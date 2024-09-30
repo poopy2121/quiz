@@ -2,19 +2,23 @@ body {
     height: 95vh;
     display: grid;
     place-items: center;
+    background-color: rgb(194, 193, 186);
+    font-family: 'inter' ;
+    word-spacing: .4em;
 }
 
 button {
-    background-color: rgb(97, 97, 224);
-    color: white;
+    background-color: rgb(227, 229, 226);
+    color: black;
     cursor: pointer;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
     width: 5rem;
     border-radius: 1.2rem;
-    padding: .4rem
-
+    padding: .4rem;
+    border: solid 2px rgb(49, 47, 47);
+    text-align: center;
 }
 
 button:hover {
@@ -24,16 +28,25 @@ button:hover {
     z-index: 2000;
 
 }
+#h2 {
+    font-size: 3em;
+    color: white;
+        
+
+}
 
 #container {
-    background-color: lightblue;
+    background-color: rgb(194, 199, 194);
     text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
     width:50%;
-    border-radius: 2rem;
+    border-radius: 1.5rem;
     position: relative;
+    border: solid white;
+    box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.4), -10px 20px 20px rgba(0, 0, 0, 0.3);
+
 }
 
 #cash {
@@ -46,13 +59,41 @@ button:hover {
 
 #boxContainer {
     border: hidden red; border-radius: 1.2rem;
-    display: grid;
-     grid-template-columns: 1fr 1fr; 
-     
+   display: grid; 
+    grid-template-columns: repeat(2, 1fr); 
+    gap: .3rem;
+    margin-top: 2rem;
+    padding-bottom: 2rem;
 
 
 }
 
+#progress {
+    display: grid;
+ margin-left: auto f; 
+place-items: center;}  
+
 #questionContainer {
     margin-bottom: 2rem;
+    color: rgb(0, 0, 0);
+    padding: 2rem;
+    font-weight: 700;
+    font-size: 1.7em;
+
+}
+
+#nextQuestionBtnContainer {
+    display: flex;
+    justify-content: center;
+}
+
+#answerBoxA:hover,
+#answerBoxC:hover {
+
+
+
+}
+
+#answerBoxA, #answerBoxC {
+    margin-left: auto;
 }
