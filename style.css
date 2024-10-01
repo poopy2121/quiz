@@ -101,7 +101,7 @@ progress:hover {
     cursor: grab;
 }
 
-#questionContainer p:hover {
+#questionContainer:hover {
     cursor: default;
 
 }
