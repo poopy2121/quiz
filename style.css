@@ -14,17 +14,20 @@ button {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    width: 5rem;
-    border-radius: 1.2rem;
+    width: 15rem;
+    border-radius: 135px;
     padding: .4rem;
     border: solid 2px rgb(49, 47, 47);
     text-align: center;
+    align-items: center;
+    font-size: 1.3em;
+    font-weight: 500;
+    
 }
 
 button:hover {
     transform: scale(1.2);
     transition: all .3s;
-    width: 30%;
     z-index: 2000;
 
 }
@@ -46,6 +49,7 @@ button:hover {
     position: relative;
     border: solid white;
     box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.4), -10px 20px 20px rgba(0, 0, 0, 0.3);
+    font-style: italic;
 
 }
 
@@ -61,7 +65,7 @@ button:hover {
     border: hidden red; border-radius: 1.2rem;
    display: grid; 
     grid-template-columns: repeat(2, 1fr); 
-    gap: .3rem;
+    gap: 2rem;
     margin-top: 2rem;
     padding-bottom: 2rem;
 
@@ -87,13 +91,23 @@ place-items: center;}
     justify-content: center;
 }
 
-#answerBoxA:hover,
-#answerBoxC:hover {
-
-
-
-}
 
 #answerBoxA, #answerBoxC {
     margin-left: auto;
+}
+
+
+progress:hover {
+    cursor: grab;
+}
+
+#questionContainer p:hover {
+    cursor: default;
+
+}
+
+button:hover {
+    border: solid rgb(255, 255, 255) 2px;
+    background-color: rgb(215, 214, 214);
+    transition:  .3s;
 }

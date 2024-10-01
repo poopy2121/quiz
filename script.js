@@ -1,7 +1,8 @@
 const answerButtons = document.querySelectorAll(".answerBox");
-
+const clapping = new Audio(
+  "soundeffects/cheering-and-clapping-crowd-1-5995.mp3");
+const correctSound = new Audio("soundeffects/correct-6033.mp3");
 const questions = [
-  
   {
     question:
       "On which planet can you find Olympus Mons, the largest volcano in the solar system?",
@@ -32,6 +33,8 @@ let answerB = document.getElementById("SpanB");
 let answerC = document.getElementById("SpanC");
 let answerD = document.getElementById("SpanD");
 
+let correctAnswer;
+
 function displayQuestion(index) {
   question.innerText = questions[index].question;
   answerA.innerText = questions[index].options[0];
@@ -39,12 +42,11 @@ function displayQuestion(index) {
   answerC.innerText = questions[index].options[2];
   answerD.innerText = questions[index].options[3];
 }
-
 displayQuestion(0);
 
 // const nextQuestionBtn = document.createElement('button');
 
 //function showNextQuestionButton() {
-  // answerButtons.append(nextQuestionBtn);
+// answerButtons.append(nextQuestionBtn);
 
 // }
