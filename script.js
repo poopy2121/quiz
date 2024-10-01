@@ -44,9 +44,9 @@ function displayQuestion(index) {
   correctAnswer = questions[index].answer;
 }
 
+let currentIndex = 0;
 
-displayQuestion(0);
-
+displayQuestion(currentIndex);
 
 const answerBoxA = document.getElementById("answerBoxA");
 const answerBoxB = document.getElementById("answerBoxB");
@@ -58,63 +58,52 @@ const answerBoxD = document.getElementById("answerBoxD");
 // 2. A single event handler function for all buttons (balanced)
 // 3. Using querySelectorAll with a loop (efficient but more complex)
 
-
+let points = 0;
 
 answerBoxA.addEventListener("click", function () {
-   if (correctAnswer === answerA.innerText)
-     if (correctAnswer === answerA.innerText) {
-       console.log("u won!");
-       answerBoxA.style.border = "solid green 3px";
-       correctSound.play();
-     } else {
-       answerBoxA.style.border = "solid red 2px";
-     }
+  if (correctAnswer === answerA.innerText)
+    if (correctAnswer === answerA.innerText) {
+      console.log("u won!");
+      answerBoxA.style.border = "solid green 3px";
+      correctSound.play();
+      displayQuestion(currentIndex++);
+    } else {
+      answerBoxA.style.border = "solid red 2px";
+    }
+});
 
-}
-);
-
-answerBoxB.addEventListener('click', function () {
-   if (correctAnswer === answerB.innerText)
-      {
-       console.log("u won!");
-       answerBoxB.style.border = "solid green 3px";
-       correctSound.play();
-     } else {
-       answerBoxB.style.border = "solid red 2px";
-     } 
-
-})
-
+answerBoxB.addEventListener("click", function () {
+  if (correctAnswer === answerB.innerText) {
+    console.log("u won!");
+    answerBoxB.style.border = "solid green 3px";
+    correctSound.play();
+    displayQuestion(currentIndex++);
+  } else {
+    answerBoxB.style.border = "solid red 2px";
+  }
+});
 
 answerBoxC.addEventListener("click", function () {
-   if ((correctAnswer === answerC.innerText)) {
-     console.log("u won!");
-     answerBoxC.style.border = "solid green 3px";
-     correctSound.play();
-   } 
-   else {
+  if (correctAnswer === answerC.innerText) {
+    console.log("u won!");
+    answerBoxC.style.border = "solid green 3px";
+    correctSound.play();
+    displayQuestion(currentIndex++);
+  } else {
     answerBoxC.style.border = "solid red 2px";
-   }
-}
-);
-
+  }
+});
 
 answerBoxD.addEventListener("click", function () {
-   if (correctAnswer === answerD.innerText)
-     if (correctAnswer === answerD.innerText) {
-       console.log("u won!");
-       answerBoxD.style.border = "solid green 3px";
-       correctSound.play();
-     } else {
-       answerBoxD.style.border = "solid red 2px";
-     }
-}
-);
-
-
-
-
-
+  if (correctAnswer === answerD.innerText)
+    if (correctAnswer === answerD.innerText) {
+      console.log("u won!");
+      answerBoxD.style.border = "solid green 3px";
+      correctSound.play();
+    } else {
+      answerBoxD.style.border = "solid red 2px";
+    }
+});
 
 // const nextQuestionBtn = document.createElement('button');
 

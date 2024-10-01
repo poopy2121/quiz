@@ -1,10 +1,20 @@
 body {
     height: 95vh;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: rgb(194, 193, 186);
     font-family: 'inter' ;
     word-spacing: .4em;
+    position: relative;
+}
+
+#points {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5rem;
+    margin-right: 3rem;
 }
 
 button {
@@ -111,3 +121,4 @@ button:hover {
     background-color: rgb(215, 214, 214);
     transition:  .3s;
 }
+
