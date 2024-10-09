@@ -9,13 +9,15 @@ body {
     position: relative;
 }
 
-#points {
+#leaderboards-points {
     position: absolute;
     top: 0;
     right: 0;
     padding: 5rem;
     margin-right: 3rem;
 }
+
+
 
 button {
     background-color: rgb(227, 229, 226);
@@ -54,14 +56,33 @@ button:hover {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width:50%;
+    width: 50%;
     border-radius: 1.5rem;
     position: relative;
     border: solid white;
     box-shadow: -20px 30px 60px rgba(0, 0, 0, 0.4), -10px 20px 20px rgba(0, 0, 0, 0.3);
     font-style: italic;
-
+    animation: borderAnimation 8s infinite alternate;
 }
+
+@keyframes borderAnimation {
+    0% {
+        border-color: #ff0000;
+    }
+    25% {
+        border-color: #00ff00;
+    }
+    50% {
+        border-color: #0000ff;
+    }
+    75% {
+        border-color: #ffff00;
+    }
+    100% {
+        border-color: #ff00ff;
+    }
+}
+
 
 #cash {
     position: absolute;

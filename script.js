@@ -1,8 +1,10 @@
-const answerButtons = document.querySelectorAll(".answerBox");
 const clapping = new Audio(
   "soundeffects/cheering-and-clapping-crowd-1-5995.mp3"
 );
 const correctSound = new Audio("soundeffects/correct-6033.mp3");
+
+const error = new Audio("soundeffects/error-126627.mp3");
+
 const questions = [
   {
     question:
@@ -34,8 +36,15 @@ let answerB = document.getElementById("SpanB");
 let answerC = document.getElementById("SpanC");
 let answerD = document.getElementById("SpanD");
 
+const answerBoxes = document.querySelectorAll(".answerBox");
 let correctAnswer;
+let currentIndex = 0;
+let points = 0;
+let attempts = 0;
+const pointspan = document.getElementById("pointsspan");
+
 function displayQuestion(index) {
+  resetStyles();
   question.innerText = questions[index].question;
   answerA.innerText = questions[index].options[0];
   answerB.innerText = questions[index].options[1];
@@ -44,70 +53,65 @@ function displayQuestion(index) {
   correctAnswer = questions[index].answer;
 }
 
-let currentIndex = 0;
+function resetStyles() {
+  answerBoxes.forEach((box) => {
+    box.style.border = "";
+  });
+}
+
+function updatePoints() {
+  pointspan.innerText = points;
+}
+
+function nextQuestion() {
+  //TODO HIER PROGRESS BAR AKTUALISIEREN
+  currentIndex++;
+  attempts = 0;
+  if (currentIndex < questions.length) {
+    displayQuestion(currentIndex);
+  } else {
+    alert("Quiz completed! Your score:" + points );
+    leaderboardAdd();
+  }
+}
+
+const body = document.body
+const leaderboard = document.getElementById("leaderboard");
+
+answerBoxes.forEach((box) => {
+  box.addEventListener("click", function () {
+    const selectedAnswer = this.querySelector("span").innerText;
+    attempts++;
+    if (selectedAnswer === correctAnswer) {
+      this.style.border = "solid green 3px";
+      correctSound.play();
+      if (attempts === 1) points += 500;
+      else if (attempts === 2) points += 100;
+      else if (attempts >= 3) points += 10;
+      updatePoints();
+      setTimeout(nextQuestion, 800);
+    } else {
+      this.style.border = "solid red 2px";
+      error.play();
+
+      if (attempts >= 3) {
+        setTimeout(nextQuestion, 800);
+      }
+    }
+  });
+});
+
 
 displayQuestion(currentIndex);
+updatePoints();
 
-const answerBoxA = document.getElementById("answerBoxA");
-const answerBoxB = document.getElementById("answerBoxB");
-const answerBoxC = document.getElementById("answerBoxC");
-const answerBoxD = document.getElementById("answerBoxD");
 
-// NOTE: There are 3 approaches for handling button clicks:
-// 1. Separate listeners for each button (easy but repetitive) not efficient but iam dumb  so ill pick this
-// 2. A single event handler function for all buttons (balanced)
-// 3. Using querySelectorAll with a loop (efficient but more complex)
+//TODO Leaderboard erstellen
 
-let points = 0;
+function leaderboardAdd() {
+  const lastScore = document.createElement('li');
+  lastScore.innerText = points;
+  leaderboard.append(lastScore);
+  
+}
 
-answerBoxA.addEventListener("click", function () {
-  if (correctAnswer === answerA.innerText)
-    if (correctAnswer === answerA.innerText) {
-      console.log("u won!");
-      answerBoxA.style.border = "solid green 3px";
-      correctSound.play();
-      displayQuestion(currentIndex++);
-    } else {
-      answerBoxA.style.border = "solid red 2px";
-    }
-});
-
-answerBoxB.addEventListener("click", function () {
-  if (correctAnswer === answerB.innerText) {
-    console.log("u won!");
-    answerBoxB.style.border = "solid green 3px";
-    correctSound.play();
-    displayQuestion(currentIndex++);
-  } else {
-    answerBoxB.style.border = "solid red 2px";
-  }
-});
-
-answerBoxC.addEventListener("click", function () {
-  if (correctAnswer === answerC.innerText) {
-    console.log("u won!");
-    answerBoxC.style.border = "solid green 3px";
-    correctSound.play();
-    displayQuestion(currentIndex++);
-  } else {
-    answerBoxC.style.border = "solid red 2px";
-  }
-});
-
-answerBoxD.addEventListener("click", function () {
-  if (correctAnswer === answerD.innerText)
-    if (correctAnswer === answerD.innerText) {
-      console.log("u won!");
-      answerBoxD.style.border = "solid green 3px";
-      correctSound.play();
-    } else {
-      answerBoxD.style.border = "solid red 2px";
-    }
-});
-
-// const nextQuestionBtn = document.createElement('button');
-
-//function showNextQuestionButton() {
-// answerButtons.append(nextQuestionBtn);
-
-// }
