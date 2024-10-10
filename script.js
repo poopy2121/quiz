@@ -70,12 +70,14 @@ function nextQuestion() {
   if (currentIndex < questions.length) {
     displayQuestion(currentIndex);
   } else {
-    alert("Quiz completed! Your score:" + points );
+    alert("Quiz completed! Your score:" + points);
+    restartGame();
     leaderboardAdd();
+    resetScore();
   }
 }
 
-const body = document.body
+const body = document.body;
 const leaderboard = document.getElementById("leaderboard");
 
 answerBoxes.forEach((box) => {
@@ -101,17 +103,46 @@ answerBoxes.forEach((box) => {
   });
 });
 
-
 displayQuestion(currentIndex);
 updatePoints();
-
+restartGame();
 
 //TODO Leaderboard erstellen
+//TODO Leaderboard nach punkten ordnen
+//TODO Progress bar dynamisch machen
+//TODO Ein kleines +500 über Box wenn richtig beantowrtet wird
+//TODO clear leaderboard button DONE
 
 function leaderboardAdd() {
-  const lastScore = document.createElement('li');
+  let lastScore;
+
+  lastScore = document.createElement("li");
   lastScore.innerText = points;
   leaderboard.append(lastScore);
-  
 }
 
+function resetScore() {
+  points = 0;
+  pointspan.innerHTML = 0;
+  displayQuestion(currentIndex);
+}
+
+const clearLeaderboard = document.getElementById("clearLeaderboard");
+
+clearLeaderboard.addEventListener("click", function () {
+  const multipleLi = document.querySelectorAll("li");
+
+  multipleLi.forEach((li) => {
+    li.remove();
+  });
+});
+
+function restartGame() {
+  currentIndex = 0;
+  attempts = 0;
+  updatePoints();
+  resetStyles();
+  displayQuestion(currentIndex);
+}
+
+function progress() {}

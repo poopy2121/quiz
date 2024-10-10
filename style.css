@@ -10,6 +10,8 @@ body {
 }
 
 #leaderboards-points {
+    
+    z-index: ;
     position: absolute;
     top: 0;
     right: 0;
@@ -17,9 +19,14 @@ body {
     margin-right: 3rem;
 }
 
+h3 {
+    background-color: white;
+    height: auto;
+    padding: 1rem;
+    border-radius: 25px;
+}
 
-
-button {
+button:not(#clearLeaderboard) {
     background-color: rgb(227, 229, 226);
     color: black;
     cursor: pointer;
@@ -37,7 +44,16 @@ button {
     
 }
 
-button:hover {
+#clearLeaderboard {
+   cursor: pointer;
+}
+
+#clearLeaderboard:active {
+    transform: scale(1.1);
+
+}
+
+button:hover:not(#clearLeaderboard) {
     transform: scale(1.2);
     transition: all .3s;
     z-index: 2000;
@@ -105,8 +121,14 @@ button:hover {
 
 #progress {
     display: grid;
- margin-left: auto f; 
-place-items: center;}  
+ margin-left: ; 
+place-items: center;
+
+}  
+
+#progressbar {
+    height: 1.5rem;
+}
 
 #questionContainer {
     margin-bottom: 2rem;
